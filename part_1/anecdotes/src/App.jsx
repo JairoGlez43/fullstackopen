@@ -23,13 +23,11 @@ const App = () => {
     
     const [selected, setSelected] = useState(0);
     const [votes, setVotes] = useState(Array(8).fill(0));
-    const [mostVotes, setMostVotes] = useState(0);
+    const max = Math.max(...votes);
     
     const handleVotes = () => {
         const copy = [...votes];
         copy[selected]+=1;
-        const max = Math.max(...copy);
-        setMostVotes(max);
         setVotes(copy);
     }
     //console.log(votes);
@@ -47,7 +45,7 @@ const App = () => {
         <AnecdotesSection text={'Anecdote of the day'} votes={votes[selected]} anecdotes={anecdotes[selected]}> </AnecdotesSection>
         <Butt text={'vote'} handleClick={handleVotes}></Butt>
         <Butt text={'next anecdote'} handleClick={handleChangeAnec}></Butt>
-        <AnecdotesSection text={'Anecdote with most votes'} votes={mostVotes} anecdotes={anecdotes[votes.indexOf(mostVotes)]}> </AnecdotesSection>
+        <AnecdotesSection text={'Anecdote with most votes'} votes={max} anecdotes={anecdotes[votes.indexOf(max)]}> </AnecdotesSection>
       </>
     )
   }
