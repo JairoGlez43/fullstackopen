@@ -3,9 +3,7 @@ import Filter from './Filter';
 import PersonForm from './PersonForm';
 import Persons from './Persons';
 const App = () => {
-  /*const [persons, setPersons] = useState([
-    { name: 'Arto Hellas'}
-  ])*/ 
+
     const [persons, setPersons] = useState([
         { name: 'Arto Hellas', number: '040-123456', id: 1 },
         { name: 'Ada Lovelace', number: '39-44-5323523', id: 2 },
@@ -19,7 +17,7 @@ const App = () => {
   const onNameChange = (e) => {
     const temp = e.target.value;
     setNewName(temp);
-    console.log(temp);
+    //console.log(temp);
   }
 
   const onSub = (e) => {
@@ -53,9 +51,7 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      
       <Filter filter={filter} onFilterChange={onFilterChange}></Filter>  
-      
       <h2>Add a new</h2>
       <PersonForm onSub={onSub} newName={newName} newNumber={newNumber} onNameChange={onNameChange} onNumberChange={onNumberChange}></PersonForm>
       <h2>Numbers</h2>
